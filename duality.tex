@@ -1,0 +1,385 @@
+\documentclass[notheorems]{beamer}
+
+\usetheme{Warsaw}
+\useoutertheme{miniframes}
+\useinnertheme{rectangles}
+\usecolortheme{albatross}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\theoremstyle{definition} % insert bellow all blocks you want in normal text
+\newtheorem{definition}{Definition}[section] % to number according to section
+
+%Information to be included in the title page:
+\title{Duality in Coherent Algebras}
+\author{Mark Farrell}
+\date{February 2018}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Coherent Algebras}
+
+	\begin{definition}
+
+		  A coherent algebra $\mathcal{W}$ of order $n$ is a subspace of $\operatorname{Mat}_{n \times n}(\mathbb{C})$ such that:
+
+		  \begin{itemize}
+		  	\item $M N$ and $M \circ N \in \mathcal{W}$ for all $M, N \in \mathcal{W}$.
+		  	\item $M^{T} \in \mathcal{W}$ for all $M \in \mathcal{W}$.
+		  	\item $I, J \in \mathcal{W}$.
+		  \end{itemize}
+
+  \end{definition}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Duality Mappings}
+
+	\begin{definition}
+		A duality mapping between (commutative) coherent algebras $\mathcal{W}$ and $\mathcal{X}$ of order $n$ is a linear isomorphism $T : \mathcal{W} \to \mathcal{X}$such that:
+
+			\begin{itemize}
+		  		\item $T(M N) = T(M) \circ T(N) $ for all $M, N \in \mathcal{W}$.
+		  		\item $T (M \circ N) = \frac{1}{n} T(M) T(N)$ for all $M, N \in \mathcal{W}$.
+			\end{itemize}
+
+  	\end{definition}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Primitive Matrices}
+
+	\begin{definition}
+		An element $M \in \mathcal{W}$ of a coherent algebra $\mathcal{W}$ is said to be primitive if $M^{2} = M$ and $M N \in \operatorname{span} \{ M \}$ for all $N \in \mathcal{W}$.
+	\end{definition}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Schur-Primitive Matrices}
+
+	\begin{definition}
+		Dually, an element $M \in \mathcal{W}$ of a coherent algebra $\mathcal{W}$ is said to be Schur-primitive if $M^{\circ 2} = M$ and $M \circ N \in \operatorname{span} \{ M \}$ for all $N \in \mathcal{W}$.
+	\end{definition}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Dual Bases}
+
+
+	\only<1->{Every coherent algebra is spanned by its set of Schur-primitive matrices.} 
+
+	\vspace{1em}
+
+	\only<2>{Dually, every commutative coherent algebra is spanned by its set of primitive matrices as well.}
+
+\end{frame}
+
+\begin{frame}
+
+
+
+	Suppose that $\mathcal{W}$ is a commutative coherent algebra of order $n$.
+
+	\vspace{1em}
+
+	Let $\Gamma(\mathcal{W})$ denote the set of Schur-primitive matrices in $\mathcal{W}$.
+
+	\vspace{1em}
+
+	Dually, let $\Lambda(\mathcal{W})$ denote the set of primitive matrices in $\mathcal{W}$.
+
+	\vspace{1em}
+
+	Suppose that $\{ A_{i} : 1 \leq i \leq d \}$ and $\{ E_{i} : 1 \leq i \leq d \}$ are orderings 
+	on $\Gamma(\mathcal{W})$ and $\Lambda(\mathcal{W})$, letting $d := \operatorname{dim}(\mathcal{W})$.
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Character Tables and Dual Character Tables}
+
+	\only<1->{The matrix $P \in \operatorname{Mat}_{d \times d}(\mathbb{C})$ such that $A_{i} = \sum\limits_{j = 1}^{d} P_{i, j} E_{j}$
+	is said to be the character table of $\mathcal{W}$ (under these orderings).}
+
+	\only<2->{
+		\vspace{1em}
+
+		Dually, the matrix $Q \in \operatorname{Mat}_{d \times d}(\mathbb{C})$ such that $E_{i} = \sum\limits_{j = 1}^{d} \left ( \frac{1}{n} Q_{i, j} \right ) A_{j} $
+		is said to be the dual character table of $\mathcal{W}$ (under these orderings).
+
+	}
+
+	\only<3->{
+		\vspace{1em}
+
+		We have that $P^{-1} = \frac{1}{n} Q$ and hence $P Q = n I$.
+	}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Intersection Numbers and Dual Intersection Numbers}
+
+	\only<1>{
+		There is a set of numbers $\{ p_{i,j}(k) : 1 \leq i,j,k \leq d \}$ such that $A_{i} A_{j} = \sum\limits_{k = 1}^{d} p_{i, j}(k) A_{k}$ for all $ 1 \leq i, j \leq d$.
+
+		\vspace{1em}
+
+		These are said to be the intersection numbers of $\mathcal{W}$.
+	}
+
+	\only<2>{
+		Dually, there is a set of numbers $\{ q_{i,j}(k) : 1 \leq i,j,k \leq d \}$  such that $E_{i} \circ E_{j} = \sum\limits_{k = 1}^{d} q_{i, j}(k) E_{k}$ for all $ 1 \leq i, j \leq d$.
+
+		\vspace{1em}
+
+		These are said to be the dual intersection numbers of $\mathcal{W}$ (or Krein numbers of $\mathcal{W}$).
+	}
+
+	\only<3>{
+		The intersection numbers of $\mathcal{W}$ are non-negative integers.
+
+		\vspace{1em}
+
+		The dual intersection numbers of $\mathcal{W}$ are non-negative real numbers.
+	}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Duality Mappings}
+
+	There is a duality mapping between commutative coherent algebras $\mathcal{X}$ and $\mathcal{Y}$ of dimension $d$
+	if and only if:
+		\begin{enumerate}
+			\item $p_{i,j}(k) = q_{i,j}(k)$ for all $1 \leq i,j,k \leq d$,
+
+				\vspace{0.5em}
+
+				where $\{ p_{i,j}(k) : 1 \leq i,j,k \leq d \}$ are the intersection numbers of $\mathcal{X}$ 
+
+				\vspace{0.5em}
+
+				and $\{ q_{i,j}(k) : 1 \leq i,j,k \leq d \}$ are the dual intersection numbers of $\mathcal{Y}$.
+
+			\item There is a character table $P$ of $\mathcal{X}$ and dual character table $Q$ of $\mathcal{Y}$ such that $\overline{P} = Q$.
+		\end{enumerate}
+
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Finite Groups}
+
+	\only<1>{
+
+		Suppose that $G$ is a finite group of order $n$.
+
+		\vspace{1em}
+
+		Let $L^{2}(G)$ denote the space of complex-valued functions on $G$.
+
+		\vspace{1em}
+
+		Define $M_{f} \in \operatorname{Mat}_{G \times G}(\mathbb{C})$ as $ \left ( M_{f} \right )_{x,y} := f(x^{-1} y)$ for all $x,y \in G$.
+
+		\vspace{1em}
+
+		We have that $M_{f} M_{g} = M_{f \star g}$ for all $f, g \in L^{2}(G)$ with convolution $f \star g$.
+
+	}
+
+	\only<2>{
+
+		Additionally, define $A_{g} \in \operatorname{Mat}_{G \times G}(\mathbb{C})$ as $\left ( A_{g} ) \right )_{x,y} = xy^{-1}$ 
+
+		for all $x,y \in G$ and $g \in G$.
+
+		\vspace{1em}
+
+		The coherent algebra $\mathcal{W}_{G} := \operatorname{span} \{ A_{g} : g \in G \}$
+
+		\vspace{0.5em}
+
+		$ = \{ M_{f} : f \in L^{2}(G) \}$ can be identified with the group ring of $G$.
+
+		\vspace{1em}
+
+		Refer to $W_{G}$ as the group coherent algebra of ${G}$.
+
+
+	}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Finite Abelian Groups}
+
+	\only<1>{
+		Assume that $G$ is abelian.
+
+		\vspace{1em}
+
+		Let $X(G)\subseteq L^{2}(G)$ denote the set of irreducible characters of $G$.
+
+		\vspace{1em}
+
+		Then $W_{G} = \operatorname{span} \left \{ \frac{1}{n} M_{\chi} : \chi \in X(G) \right \}$ 
+
+		\vspace{0.5em}
+
+		where $ \left \{ \frac{1}{n} M_{\chi} : \chi \in X(G) \right \}$ is the set of primitive matrices in $\mathcal{W}_{G}$.
+
+	}
+
+	\only<2>{
+		A character table for $\mathcal{W}_{G}$ can be identified with a character table for $G$ in the usual sense.
+
+		\vspace{1em}
+
+		There is an ordering $\{ \chi_{x} : x \in G \}$ on $X(G)$ such that $\chi_{x}(y) = \chi_{y}(x)$ for all $x,y \in G$,
+
+		\vspace{0.5em}
+
+		since $G$ can be decomposed as a direct product of finite cyclic groups.
+
+		\vspace{1em}
+
+		There is then a character table $P$ for $\mathcal{W}_{G}$ such that $P \overline{P} = n I$,
+
+		\vspace{0.5em}
+
+		since $X(G)$ forms an orthonormal basis for $L^{2}(G)$ as well.
+
+	}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Fourier Transforms}
+
+	\only<1>{
+		\begin{definition}
+			A Fourier transform on a (commutative) coherent algebra $\mathcal{W}$ of order $n$ is a duality mapping $T : \mathcal{W} \to \mathcal{W}$ such that:
+			\begin{itemize}
+				\item $T^{-1}(M) = \overline{ \frac{1}{n} T(M)}$ for all Schur-primitive matrices $M \in \mathcal{W}$.
+			\end{itemize}
+		\end{definition}
+	}
+
+	\only<2>{
+		A Fourier transform on the group coherent algebra $\mathcal{W}_{G}$ of a finite abelian group $G$ can be identified with a Fourier transform on the space $L^{2}(G)$ of complex-valued functions on $G$.
+	}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Self-Dual Coherent Algebras}
+
+	There is a Fourier transform on a (commutative) coherent algebra $\mathcal{W}$ if and only if there is a character table $P$ of $\mathcal{W}$
+	such that dual character table of $\mathcal{W}$ is $\overline{P}$.
+
+	\vspace{1em}
+
+	A (commutative) coherent algebra is said to be self-dual if there is character table $P$ of $\mathcal{W}$ such that $\overline{P}$ is the dual character table of $\mathcal{W}$.
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{More Self-Dual Coherent Algebras}
+
+	\only<1-3>{
+
+		The adjacency algebras of Hamming graphs are self-dual coherent algebras.
+
+	}
+
+	\only<2-3>{
+
+		\vspace{1em}
+
+		The tensor product $\mathcal{X} \otimes \mathcal{Y} := \{ M \otimes N : M \in \mathcal{X}, N \in \mathcal{Y} \}$ 
+
+		\vspace{0.5em} 
+
+		of coherent algebras $\mathcal{X}$ and $\mathcal{Y}$ is self-dual if there is a duality mapping betwen them.
+
+	}
+
+	\only<3>{
+
+		\vspace{1em}
+
+		There is a duality mapping on the adjacency algebra of every self-complementary strongly-regular graph.
+
+	}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Metric and Cometric Coherent Algebras}
+
+	\only<1-3>{ 
+
+		A (commutative) coherent algebra $\mathcal{W}$ is said to be metric if $\mathcal{W} = \operatorname{span} \{ I, A, A^{2}, \cdots \}$
+		for some Schur-primitive metric $A \in \mathcal{W}$.
+
+	}
+
+	\only<2-3>{
+
+		\vspace{1em}
+
+		Dually, a (commutative) coherent algebra is said to be cometric if $\mathcal{W} = \operatorname{span} \{ J, E, E^{2}, \cdots \}$
+		for some primitive matrix $E \in \mathcal{W}$.
+
+	}
+
+	\only<3>{
+		A self-dual coherent algebra is metric if and only if it is cometric.
+	}
+
+	\only<4->{
+		Coherent algebras that are both metric and symmetric can be identified with the adjacency algebras of distance-regular graphs.
+	}
+
+	\only<5->{
+		The eigenvalue multiplicities of a self-dual distance-regular graph are the valencies of its distance-graphs.
+	}
+
+
+\end{frame}
+
+\begin{frame}
+
+Is it possible to classify the self-dual distance-regular graphs?
+
+\end{frame}
+
+\end{document}
