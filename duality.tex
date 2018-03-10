@@ -12,11 +12,12 @@
 
 \theoremstyle{definition} % insert bellow all blocks you want in normal text
 \newtheorem{definition}{Definition}[section] % to number according to section
+\newtheorem{proposition}{Proposition}[section]
 
 %Information to be included in the title page:
 \title{Duality in Coherent Algebras}
 \author{Mark Farrell}
-\date{February 2018}
+\date{March 2018}
 
 \begin{document}
 
@@ -39,22 +40,6 @@
 		  \end{itemize}
 
   \end{definition}
-
-\end{frame}
-
-\begin{frame}
-
-\frametitle{Duality Mappings}
-
-	\begin{definition}
-		A duality mapping between (commutative) coherent algebras $\mathcal{W}$ and $\mathcal{X}$ of order $n$ is a linear isomorphism $T : \mathcal{W} \to \mathcal{X}$ such that:
-
-			\begin{itemize}
-		  		\item $T(M N) = T(M) \circ T(N) $ for all $M, N \in \mathcal{W}$.
-		  		\item $T (M \circ N) = \frac{1}{n} T(M) T(N)$ for all $M, N \in \mathcal{W}$.
-			\end{itemize}
-
-  	\end{definition}
 
 \end{frame}
 
@@ -137,6 +122,53 @@
 
 \begin{frame}
 
+\frametitle{Dual Character Tables in Terms of Character Tables}
+
+	\only<1->{
+		Define the trace inner product $\langle \cdot, \cdot \rangle$ on $\operatorname{Mat}_{d \times d}(\mathbb{C})$:
+
+		\vspace{1em}
+
+		$\langle \cdot , \cdot \rangle : \operatorname{Mat}_{d \times d}(\mathbb{C}) \times \operatorname{Mat}_{d \times d}(\mathbb{C}) \to \mathbb{C}$
+
+		\vspace{0.5em}
+
+		$\langle A, B \rangle := \operatorname{tr} \left ( B^{*} A \right ) = \operatorname{sum} \left ( \overline{B} \circ A \right )$
+
+	}
+
+	\only<2->{
+
+		\vspace{1.5em}
+
+		Let $v_i$ denote the valency of $A_{i}$ and $m_{i}$ denote the rank of $E_{i}$
+
+		\vspace{0.5em}
+
+		for all $1 \leq i \leq d$.
+
+	}
+
+	\only<3->{
+
+		\vspace{1em}
+
+		$ \implies v_{j} Q_{i,j} = \langle E_{i}, A_{j} \rangle = m_{i} P_{j, i}$ for all $1 \leq i, j \leq d $.
+
+	}
+
+	\only<4->{
+
+		\vspace{1em}
+
+		Hence $Q = R \circ P^{T}$ where $R \in \operatorname{Mat}_{d \times d}(\mathbb{C})$ and $R_{i, j} := \frac{m_{i}}{v_{j}}$  for all $1 \leq i, j \leq d $.
+
+	}
+
+\end{frame}
+
+\begin{frame}
+
 \frametitle{Intersection Numbers and Dual Intersection Numbers}
 
 	\only<1>{
@@ -169,28 +201,100 @@
 
 \frametitle{Duality Mappings}
 
-	There is a duality mapping between commutative coherent algebras $\mathcal{X}$ and $\mathcal{Y}$ of dimension $d$
-	if and only if:
-		\begin{enumerate}
-			\item $p_{i,j}(k) = q_{i,j}(k)$ for all $1 \leq i,j,k \leq d$,
+	\only<1> {
 
-				\vspace{0.5em}
+		\begin{definition}
+			A duality mapping between (commutative) coherent algebras $\mathcal{W}$ and $\mathcal{X}$ of order $n$ is a linear isomorphism $T : \mathcal{W} \to \mathcal{X}$ such that:
 
-				where $\{ p_{i,j}(k) : 1 \leq i,j,k \leq d \}$ are the intersection numbers of $\mathcal{X}$ 
+			\begin{itemize}
+		  		\item $T(M N) = T(M) \circ T(N) $ for all $M, N \in \mathcal{W}$.
+		  		\item $T (M \circ N) = \frac{1}{n} T(M) T(N)$ for all $M, N \in \mathcal{W}$.
+			\end{itemize}
 
-				\vspace{0.5em}
+  		\end{definition}
 
-				and $\{ q_{i,j}(k) : 1 \leq i,j,k \leq d \}$ are the dual intersection numbers of $\mathcal{Y}$.
 
-			\item There is a character table $P$ of $\mathcal{X}$ and dual character table $Q$ of $\mathcal{Y}$ such that $\overline{P} = Q$.
-		\end{enumerate}
+	}
+
+	\only<2> {
+
+		There is a duality mapping between commutative coherent algebras $\mathcal{X}$ and $\mathcal{Y}$ of dimension $d$
+		if and only if:
+			\begin{enumerate}
+				\item $p_{i,j}(k) = q_{i,j}(k)$ for all $1 \leq i,j,k \leq d$,
+
+					\vspace{0.5em}
+
+					where $\{ p_{i,j}(k) : 1 \leq i,j,k \leq d \}$ are the intersection numbers of $\mathcal{X}$ 
+
+					\vspace{0.5em}
+
+					and $\{ q_{i,j}(k) : 1 \leq i,j,k \leq d \}$ are the dual intersection numbers of $\mathcal{Y}$.
+
+				\item There is a character table $P$ of $\mathcal{X}$ and dual character table $Q$ of $\mathcal{Y}$ such that $\overline{P} = Q$.
+			\end{enumerate}
+
+	}
 
 
 \end{frame}
 
 \begin{frame}
 
-\frametitle{Finite Groups}
+\frametitle{Metric and Cometric Coherent Algebras}
+
+	\only<1-3>{ 
+
+		A (commutative) coherent algebra $\mathcal{W}$ is said to be metric if $\mathcal{W} = \operatorname{span} \{ I, A, A^{2}, \cdots \}$
+		for some Schur-primitive metric $A \in \mathcal{W}$.
+
+	}
+
+	\only<2-3>{
+
+		\vspace{1em}
+
+		Dually, a (commutative) coherent algebra $\mathcal{W}$ is said to be cometric if $\mathcal{W} = \operatorname{span} \{ J, E, E^{\circ 2}, \cdots \}$
+		for some primitive matrix $E \in \mathcal{W}$.
+
+	}
+
+	\only<3>{
+
+		\vspace{1em} 
+		If there is a duality mapping on a coherent algebra $\mathcal{W}$, then $\mathcal{W}$ is metric if and only if it is cometric.
+	}
+
+	\only<4->{
+		Coherent algebras that are both metric and symmetric can be identified with the adjacency algebras of distance-regular graphs.
+	}
+
+	\only<5->{
+
+		\vspace{1em}
+
+		The eigenvalue multiplicities of a distance-regular graph are the valencies of its distance-graphs if there is a duality mapping
+		on its adjacency algebra.
+
+	}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Self-Dual Coherent Algebras}
+
+	\begin{definition}
+		A (commutative) coherent algebra $\mathcal{W}$ is said to be (formally) self-dual if there is a 
+		character table $P$ for $\mathcal{W}$ with dual character table $\overline{P}$.
+	\end{definition}
+
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Finite Groups and Coherent Algebras}
 
 	\only<1>{
 
@@ -235,7 +339,7 @@
 
 \begin{frame}
 
-\frametitle{Finite Abelian Groups}
+\frametitle{Self-Dual Coherent Algebras from Finite Abelian Groups}
 
 	\only<1>{
 		Assume that $G$ is abelian.
@@ -273,6 +377,10 @@
 
 		since $X(G)$ forms an orthonormal basis for $L^{2}(G)$ as well.
 
+		\vspace{1em}
+
+		Hence $\mathcal{W}_{G}$ is self-dual.
+
 	}
 
 \end{frame}
@@ -298,86 +406,87 @@
 
 \begin{frame}
 
-\frametitle{Self-Dual Coherent Algebras}
+\frametitle{Fourier Transforms and Self-Dual Coherent Algebras}
 
 	There is a Fourier transform on a (commutative) coherent algebra $\mathcal{W}$ if and only if there is a character table $P$ of $\mathcal{W}$
 	such that dual character table of $\mathcal{W}$ is $\overline{P}$.
 
 	\vspace{1em}
 
-	A (commutative) coherent algebra is said to be self-dual if there is character table $P$ of $\mathcal{W}$ such that $\overline{P}$ is the dual character table of $\mathcal{W}$.
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Strongly-Regular Graphs}
+
+	\only<1>{
+
+		Suppose that $G$ is a (connected) strongly-regular graph of order $n$ and valency $k$.
+
+		\vspace{1em}
+
+		Assume that there is a duality mapping on the adjacency algebra $\mathcal{A}$ of $G$.
+
+
+	}
+
+	\only<2>{
+
+		\vspace{1em}
+
+		$\implies P := \begin{pmatrix} 1 & 1 & 1 \\ k & \lambda & \mu \\ {n - 1 - k}& {-1 - \lambda} & {-1 - \mu} \end{pmatrix}$
+
+		\vspace{0.5em}
+
+		is a character table for $\mathcal{A}$ for some $\lambda, \mu \in \mathbb{R}$
+
+		\vspace{1em}
+	
+		and $Q := \begin{pmatrix} 
+			1 & 1 & 1 \\
+			k & \lambda & \left ( \frac{k}{n - 1 - k} \right ) \left ( -1 - \lambda \right ) \\
+			{n - 1 - k} & \left ( \frac{n - 1 - k}{k} \right ) \mu & {-1 - \mu} \end{pmatrix}$
+
+		\vspace{0.5em}
+
+		is the dual character table of $\mathcal{A}$ relative to $P$.
+
+	}
+
+	\only<3>{
+
+		\begin{proposition}
+		Suppose that there is a duality mapping on the adjacency algebra $\mathcal{A}$ of a strongly-regular graph $G$.
+		Then $\mathcal{A}$ is self-dual if and only if the valency of $G$ is the valency of $\overline{G}$.
+
+		\end{proposition}
+
+	}
+
 
 \end{frame}
+
 
 \begin{frame}
 
 \frametitle{More Self-Dual Coherent Algebras}
 
-	\only<1-3>{
+	\only<1->{
+		The adjacency algebras of (connected) self-complementary strongly-regular graphs are self-dual.
+
+	}
+
+	\only<2->{
+
+		\vspace{1em}
 
 		The adjacency algebras of Hamming graphs are self-dual coherent algebras.
 
 	}
 
-	\only<2-3>{
-
-		\vspace{1em}
-
-		The tensor product $\mathcal{X} \otimes \mathcal{Y} := \{ M \otimes N : M \in \mathcal{X}, N \in \mathcal{Y} \}$ 
-
-		\vspace{0.5em} 
-
-		of coherent algebras $\mathcal{X}$ and $\mathcal{Y}$ is self-dual if there is a duality mapping betwen them.
-
-	}
-
-	\only<3>{
-
-		\vspace{1em}
-
-		There is a duality mapping on the adjacency algebra of every self-complementary strongly-regular graph.
-
-	}
-
 \end{frame}
 
-\begin{frame}
 
-\frametitle{Metric and Cometric Coherent Algebras}
-
-	\only<1-3>{ 
-
-		A (commutative) coherent algebra $\mathcal{W}$ is said to be metric if $\mathcal{W} = \operatorname{span} \{ I, A, A^{2}, \cdots \}$
-		for some Schur-primitive metric $A \in \mathcal{W}$.
-
-	}
-
-	\only<2-3>{
-
-		\vspace{1em}
-
-		Dually, a (commutative) coherent algebra is said to be cometric if $\mathcal{W} = \operatorname{span} \{ J, E, E^{2}, \cdots \}$
-		for some primitive matrix $E \in \mathcal{W}$.
-
-	}
-
-	\only<3>{
-		A self-dual coherent algebra is metric if and only if it is cometric.
-	}
-
-	\only<4->{
-		Coherent algebras that are both metric and symmetric can be identified with the adjacency algebras of distance-regular graphs.
-	}
-
-	\only<5->{
-
-		\vspace{1em}
-
-		The eigenvalue multiplicities of a self-dual distance-regular graph are the valencies of its distance-graphs.
-	}
-
-
-\end{frame}
 
 \begin{frame}
 
