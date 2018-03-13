@@ -101,13 +101,13 @@
 
 \frametitle{Character Tables and Dual Character Tables}
 
-	\only<1->{The matrix $P \in \operatorname{Mat}_{d \times d}(\mathbb{C})$ such that $A_{i} = \sum\limits_{j = 1}^{d} P_{i, j} E_{j}$
+	\only<1->{The matrix $P \in \operatorname{Mat}_{d \times d}(\mathbb{C})$ such that $A_{i} = \sum\limits_{j = 1}^{d} P_{i, j} E_{j}$ for all $1 \leq i \leq d$ 
 	is said to be the character table of $\mathcal{W}$ (under these orderings).}
 
 	\only<2->{
 		\vspace{1em}
 
-		Dually, the matrix $Q \in \operatorname{Mat}_{d \times d}(\mathbb{C})$ such that $E_{i} = \sum\limits_{j = 1}^{d} \left ( \frac{1}{n} Q_{i, j} \right ) A_{j} $
+		Dually, the matrix $Q \in \operatorname{Mat}_{d \times d}(\mathbb{C})$ such that $E_{i} = \sum\limits_{j = 1}^{d} \left ( \frac{1}{n} Q_{i, j} \right ) A_{j} $  for all $1 \leq i \leq d$
 		is said to be the dual character table of $\mathcal{W}$ (under these orderings).
 
 	}
@@ -246,7 +246,7 @@
 	\only<1-3>{ 
 
 		A (commutative) coherent algebra $\mathcal{W}$ is said to be metric if $\mathcal{W} = \operatorname{span} \{ I, A, A^{2}, \cdots \}$
-		for some Schur-primitive metric $A \in \mathcal{W}$.
+		for some Schur-primitive matrix $A \in \mathcal{W}$.
 
 	}
 
@@ -425,15 +425,6 @@
 
 		\vspace{1em}
 
-		Assume that there is a duality mapping on the adjacency algebra $\mathcal{A}$ of $G$.
-
-
-	}
-
-	\only<2>{
-
-		\vspace{1em}
-
 		$\implies P := \begin{pmatrix} 1 & 1 & 1 \\ k & \lambda & \mu \\ {n - 1 - k}& {-1 - \lambda} & {-1 - \mu} \end{pmatrix}$
 
 		\vspace{0.5em}
@@ -444,20 +435,22 @@
 	
 		and $Q := \begin{pmatrix} 
 			1 & 1 & 1 \\
-			k & \lambda & \left ( \frac{k}{n - 1 - k} \right ) \left ( -1 - \lambda \right ) \\
-			{n - 1 - k} & \left ( \frac{n - 1 - k}{k} \right ) \mu & {-1 - \mu} \end{pmatrix}$
+			j & \left ( \frac{j}{k} \right ) \lambda & \left ( \frac{j}{n - 1 - k} \right ) \left ( -1 - \lambda \right ) \\
+			{n - 1 - j} & \left ( \frac{n - 1 - j}{k} \right ) \mu &  \left ( \frac{n - 1 - j}{n - 1 - k} \right ){-1 - \mu} \end{pmatrix}$
 
 		\vspace{0.5em}
 
-		is the dual character table of $\mathcal{A}$ relative to $P$.
+		is the dual character table of $\mathcal{A}$ relative to $P$ for some $j \in \mathbb{N}$.
 
 	}
 
-	\only<3>{
+	\only<2>{
 
 		\begin{proposition}
-		Suppose that there is a duality mapping on the adjacency algebra $\mathcal{A}$ of a strongly-regular graph $G$.
-		Then $\mathcal{A}$ is self-dual if and only if the valency of $G$ is the valency of $\overline{G}$.
+
+		The adjacency algebra of $G$ is self-dual if
+
+		$G$ is an $\operatorname{SRG}(\cdot, \cdot, \lambda, \lambda + 1)$ for some $\lambda \geq 0$. 
 
 		\end{proposition}
 
