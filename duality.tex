@@ -12,12 +12,14 @@
 
 \theoremstyle{definition} % insert bellow all blocks you want in normal text
 \newtheorem{definition}{Definition}[section] % to number according to section
+\newtheorem{example}{Example}[section]
 \newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
 
 %Information to be included in the title page:
 \title{Duality in Coherent Algebras}
 \author{Mark Farrell}
-\date{March 2018}
+\date{June 2018}
 
 \begin{document}
 
@@ -68,11 +70,9 @@
 \frametitle{Dual Bases}
 
 
-	\only<1->{Every coherent algebra is spanned by its set of Schur-primitive matrices.} 
-
-	\vspace{1em}
-
-	\only<2>{Dually, every commutative coherent algebra is spanned by its set of primitive matrices as well.}
+	\begin{theorem}
+	Every commutative coherent algebra is spanned by its set of primitive matrices relative to both Schur-product and ordinary matrix multiplication.
+	\end{theorem}
 
 \end{frame}
 
@@ -125,6 +125,12 @@
 \frametitle{Dual Character Tables in Terms of Character Tables}
 
 	\only<1->{
+		Assume that $\mathcal{W}$ is symmetric.
+	}
+
+	\only<2->{
+		\vspace{1em}
+
 		Define the trace inner product $\langle \cdot, \cdot \rangle$ on $\operatorname{Mat}_{d \times d}(\mathbb{C})$:
 
 		\vspace{1em}
@@ -137,7 +143,7 @@
 
 	}
 
-	\only<2->{
+	\only<3->{
 
 		\vspace{1.5em}
 
@@ -149,7 +155,7 @@
 
 	}
 
-	\only<3->{
+	\only<4->{
 
 		\vspace{1em}
 
@@ -157,7 +163,7 @@
 
 	}
 
-	\only<4->{
+	\only<5->{
 
 		\vspace{1em}
 
@@ -201,41 +207,44 @@
 
 \frametitle{Duality Mappings}
 
-	\only<1> {
+	\begin{definition}
+		A duality mapping between (commutative) coherent algebras $\mathcal{W}$ and $\mathcal{X}$ of order $n$ is a linear isomorphism $T : \mathcal{W} \to \mathcal{X}$ such that:
 
-		\begin{definition}
-			A duality mapping between (commutative) coherent algebras $\mathcal{W}$ and $\mathcal{X}$ of order $n$ is a linear isomorphism $T : \mathcal{W} \to \mathcal{X}$ such that:
+		\begin{itemize}
+		  	\item $T(M N) = T(M) \circ T(N) $ for all $M, N \in \mathcal{W}$.
+		  	\item $T (M \circ N) = \frac{1}{n} T(M) T(N)$ for all $M, N \in \mathcal{W}$.
+		\end{itemize}
 
-			\begin{itemize}
-		  		\item $T(M N) = T(M) \circ T(N) $ for all $M, N \in \mathcal{W}$.
-		  		\item $T (M \circ N) = \frac{1}{n} T(M) T(N)$ for all $M, N \in \mathcal{W}$.
-			\end{itemize}
-
-  		\end{definition}
+  	\end{definition}
 
 
-	}
+\end{frame}
 
-	\only<2> {
+\begin{frame}
 
-		There is a duality mapping between commutative coherent algebras $\mathcal{X}$ and $\mathcal{Y}$ of dimension $d$
-		if and only if:
-			\begin{enumerate}
+\frametitle{Dual Coherent Algebras}
+
+	There is a duality mapping between coherent algebras $\mathcal{X}$ and $\mathcal{Y}$ of dimension $d$
+	if and only if:
+		\begin{enumerate}
+			\only<1->{
+				\item There is a character table $P$ of $\mathcal{X}$ and dual character table $Q$ of $\mathcal{Y}$ such that $\overline{P} = Q$.
+			}
+
+			\only<2->{
+
 				\item $p_{i,j}(k) = q_{i,j}(k)$ for all $1 \leq i,j,k \leq d$,
 
-					\vspace{0.5em}
+				\vspace{0.5em}
 
-					where $\{ p_{i,j}(k) : 1 \leq i,j,k \leq d \}$ are the intersection numbers of $\mathcal{X}$ 
+				where $\{ p_{i,j}(k) : 1 \leq i,j,k \leq d \}$ are the intersection numbers of $\mathcal{X}$ 
 
-					\vspace{0.5em}
+				\vspace{0.5em}
 
-					and $\{ q_{i,j}(k) : 1 \leq i,j,k \leq d \}$ are the dual intersection numbers of $\mathcal{Y}$.
+				and $\{ q_{i,j}(k) : 1 \leq i,j,k \leq d \}$ are the dual intersection numbers of $\mathcal{Y}$.
 
-				\item There is a character table $P$ of $\mathcal{X}$ and dual character table $Q$ of $\mathcal{Y}$ such that $\overline{P} = Q$.
-			\end{enumerate}
-
-	}
-
+			}
+		\end{enumerate}
 
 \end{frame}
 
@@ -284,134 +293,23 @@
 
 \frametitle{Self-Dual Coherent Algebras}
 
-	\begin{definition}
-		A (commutative) coherent algebra $\mathcal{W}$ is said to be (formally) self-dual if there is a 
-		character table $P$ for $\mathcal{W}$ with dual character table $\overline{P}$.
-	\end{definition}
-
-
-\end{frame}
-
-\begin{frame}
-
-\frametitle{Finite Groups and Coherent Algebras}
-
-	\only<1>{
-
-		Suppose that $G$ is a finite group of order $n$.
-
-		\vspace{1em}
-
-		Let $L^{2}(G)$ denote the space of complex-valued functions on $G$.
-
-		\vspace{1em}
-
-		Define $M_{f} \in \operatorname{Mat}_{G \times G}(\mathbb{C})$ as $ \left ( M_{f} \right )_{x,y} := f(x^{-1} y)$ for all $x,y \in G$.
-
-		\vspace{1em}
-
-		We have that $M_{f} M_{g} = M_{f \star g}$ for all $f, g \in L^{2}(G)$ with convolution $f \star g$.
-
-	}
-
-	\only<2>{
-
-		Additionally, define $A_{g} \in \operatorname{Mat}_{G \times G}(\mathbb{C})$ as $\left ( A_{g} ) \right )_{x,y} = xy^{-1}$ 
-
-		for all $x,y \in G$ and $g \in G$.
-
-		\vspace{1em}
-
-		The coherent algebra $\mathcal{W}_{G} := \operatorname{span} \{ A_{g} : g \in G \}$
-
-		\vspace{0.5em}
-
-		$ = \{ M_{f} : f \in L^{2}(G) \}$ can be identified with the group ring of $G$.
-
-		\vspace{1em}
-
-		Refer to $W_{G}$ as the group coherent algebra of ${G}$.
-
-
-	}
-
-\end{frame}
-
-\begin{frame}
-
-\frametitle{Self-Dual Coherent Algebras from Finite Abelian Groups}
-
-	\only<1>{
-		Assume that $G$ is abelian.
-
-		\vspace{1em}
-
-		Let $X(G)\subseteq L^{2}(G)$ denote the set of irreducible characters of $G$.
-
-		\vspace{1em}
-
-		Then $W_{G} = \operatorname{span} \left \{ \frac{1}{n} M_{\chi} : \chi \in X(G) \right \}$ 
-
-		\vspace{0.5em}
-
-		where $ \left \{ \frac{1}{n} M_{\chi} : \chi \in X(G) \right \}$ is the set of primitive matrices in $\mathcal{W}_{G}$.
-
-	}
-
-	\only<2>{
-		A character table for $\mathcal{W}_{G}$ can be identified with a character table for $G$ in the usual sense.
-
-		\vspace{1em}
-
-		There is an ordering $\{ \chi_{x} : x \in G \}$ on $X(G)$ such that $\chi_{x}(y) = \chi_{y}(x)$ for all $x,y \in G$,
-
-		\vspace{0.5em}
-
-		since $G$ can be decomposed as a direct product of finite cyclic groups.
-
-		\vspace{1em}
-
-		There is then a character table $P$ for $\mathcal{W}_{G}$ such that $P \overline{P} = n I$,
-
-		\vspace{0.5em}
-
-		since $X(G)$ forms an orthonormal basis for $L^{2}(G)$ as well.
-
-		\vspace{1em}
-
-		Hence $\mathcal{W}_{G}$ is self-dual.
-
-	}
-
-\end{frame}
-
-\begin{frame}
-
-\frametitle{Fourier Transforms}
-
 	\only<1>{
 		\begin{definition}
-			A Fourier transform on a (commutative) coherent algebra $\mathcal{W}$ of order $n$ is a duality mapping $T : \mathcal{W} \to \mathcal{W}$ such that:
+		A coherent algebra $\mathcal{W}$ of order $n$ is said to be self-dual if there is
+		a duality mapping $T : \mathcal{W} \to \mathcal{W}$ on $\mathcal{W}$ such that:
 			\begin{itemize}
-				\item $T^{-1}(M) = \overline{ \frac{1}{n} T(M)}$ for all Schur-primitive matrices $M \in \mathcal{W}$.
+				\item $T^{-1}(M) = \frac{1}{n} T(M)$ for all $M \in \mathcal{W}$.
+				\item $T(\lambda M) = \overline{\lambda} \ T(M)$ for all $\lambda \in \mathbb{C}$ and $M \in \mathcal{W}$.
 			\end{itemize}
 		\end{definition}
+
 	}
 
 	\only<2>{
-		A Fourier transform on the group coherent algebra $\mathcal{W}_{G}$ of a finite abelian group $G$ can be identified with a Fourier transform on the space $L^{2}(G)$ of complex-valued functions on $G$.
+		A coherent algebra $\mathcal{W}$ is self-dual if and only if there is a 
+		character table $P$ for $\mathcal{W}$ with dual character table $\overline{P}$.
 	}
 
-\end{frame}
-
-\begin{frame}
-
-\frametitle{Fourier Transforms and Self-Dual Coherent Algebras}
-
-	There is a Fourier transform on a (commutative) coherent algebra $\mathcal{W}$ if and only if there is a character table $P$ of $\mathcal{W}$
-	such that dual character table of $\mathcal{W}$ is $\overline{P}$.
-
-	\vspace{1em}
 
 \end{frame}
 
@@ -436,7 +334,7 @@
 		and $Q := \begin{pmatrix} 
 			1 & 1 & 1 \\
 			j & \left ( \frac{j}{k} \right ) \lambda & \left ( \frac{j}{n - 1 - k} \right ) \left ( -1 - \lambda \right ) \\
-			{n - 1 - j} & \left ( \frac{n - 1 - j}{k} \right ) \mu &  \left ( \frac{n - 1 - j}{n - 1 - k} \right ){-1 - \mu} \end{pmatrix}$
+			{n - 1 - j} & \left ( \frac{n - 1 - j}{k} \right ) \mu &  \left ( \frac{n - 1 - j}{n - 1 - k} \right ) \left ( -1 - \mu \right ) \end{pmatrix}$
 
 		\vspace{0.5em}
 
@@ -444,46 +342,65 @@
 
 	}
 
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Self-Dual Strongly-Regular Graphs}
+
+	\only<1>{
+
+		\begin{theorem}
+			Suppose that $G$ is a strongly-regular graph of order $n$ and valency $k$. Then $G$ is self-dual 
+			if and only if:
+
+				\[ \left ( \lambda - \mu \right )^{2} = n \]
+
+			with $\{k, \lambda, \mu \}$ the distinct eigenvalues of $G$.
+		\end{theorem}
+
+	}
+
 	\only<2>{
 
-		\begin{proposition}
+		\begin{theorem}
+			A strongly-regular graph $G$ is self-dual if and only if $G$ is either:
+				\begin{enumerate}
+					\item A conference graph.
+					\item An $\operatorname{SRG} \left ( m^{2}, (m - 1) \gamma, (\gamma - 1)(\gamma - 2) + (m - 2), \gamma( \gamma - 1) \right )$ for some $m, \gamma \in \mathbb{N}$.
+				\end{enumerate}
+		\end{theorem}
 
-		The adjacency algebra of $G$ is self-dual if
+	}
 
-		$G$ is an $\operatorname{SRG}(\cdot, \cdot, \lambda, \lambda + 1)$ for some $\lambda \geq 0$. 
+	\only<3>{
 
-		\end{proposition}
+		\begin{theorem}
+			A strongly-regular graph $G$ is self-dual if and only if the multiplicities of its eigenvalues are the valencies of 
+			$G$ and $\overline{G}$.
+		\end{theorem}
 
 	}
 
 
 \end{frame}
 
-
 \begin{frame}
 
-\frametitle{More Self-Dual Coherent Algebras}
+\frametitle{Self-Dual Distance-Transitive Graphs}
 
-	\only<1->{
-		The adjacency algebras of (connected) self-complementary strongly-regular graphs are self-dual.
-
-	}
-
-	\only<2->{
-
-		\vspace{1em}
-
-		The adjacency algebras of Hamming graphs are self-dual coherent algebras.
-
-	}
+	\begin{example}
+		The Hamming graphs are self-dual.
+	\end{example}
 
 \end{frame}
 
-
-
 \begin{frame}
 
-Is it possible to classify the self-dual distance-regular graphs?
+	\begin{center} 
+		To be continued ...
+	\end{center}
 
 \end{frame}
 
